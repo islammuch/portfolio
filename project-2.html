@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проект № 1</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f7f5;
+      color: #222;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(100% - 40px, 1000px);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: #666;
+    }
+
+    .intro {
+      padding: 55px 0 35px;
+    }
+
+    .eyebrow {
+      color: #777;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(36px, 7vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -.04em;
+    }
+
+    .description {
+      max-width: 620px;
+      color: #666;
+      font-size: 18px;
+    }
+
+    
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 20px 0 55px;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #e8e8e5;
+}
+
+/* Первая фотография крупнее остальных */
+.gallery img:first-child {
+  grid-column: 1 / -1;
+  height: 750px;
+}
+
+
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      padding: 35px 0 70px;
+      border-top: 1px solid #ddd;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 25px;
+    }
+
+    .details p {
+      color: #666;
+    }
+
+    .detail-card {
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid #ddd;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img,
+      .gallery img:first-child {
+        grid-column: auto;
+        height: 260px;
+      }
+
+      .details {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="container">
+    <a class="back-link" href="portfolio-start.html">
+      ← Назад ко всем проектам
+    </a>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div class="eyebrow">Моё портфолио · Проект 2</div>
+      <h1>Однокомнатная квартира, Санкт-Петербург</h1>
+      <p class="description">
+        Проект однокомнатной квартиры для гастрокритика,
+        в которой было бы приятно встречать гостей и с комфортом жить.
+      </p>
+    </section>
+
+    <section class="gallery">
+  <img src="images/21.jpg" alt="Фотография 1">
+  <img src="images/20.jpg" alt="Фотография 2">
+  <img src="images/22.jpg" alt="Фотография 3">
+  <img src="images/23.jpg" alt="Фотография 4">
+  <img src="images/24.jpg" alt="Фотография 5">
+  <img src="images/25.jpg" alt="Фотография 6">
+  <img src="images/26.jpg" alt="Фотография 7">
+  <img src="images/28.jpg" alt="Фотография 8">
+</section>
+
+    <section class="details">
+      <div>
+        <div class="eyebrow">О проекте</div>
+        <h2>Идея и задача</h2>
+      </div>
+
+      <div class="detail-card">
+        <p>
+          Главная идея заключалась в том, чтобы отразить увлечение хозяина квартиры, при этом создать уют в ограниченном по площади пространстве.
+           </p>
+Квартира разделена идейно на две зоны: кухня-гостинная и спальня. Первое помещение скорее должно напоминать камерный ресторан: приглушенный свет, столешница из нержавеющей стали, винные полки, паркет и шпонированная мебель, небольшой диванчик и полноценное обеденное место с раскладным столом для приема гостей. Спальня же наоборот — это личное пространство с теплыми оттенками мебели и текстиля, большая кровать с мягкими подушками-подголовниками, где можно смотреть фильмы на проекторе. 
+        </p>
+        <p>
+        
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    Моё портфолио · 2026
+  </footer>
+</body>
+</html>

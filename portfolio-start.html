@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Личное портфолио — проекты, навыки и контакты.">
+  <title>Моё портфолио</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --paper: #ffffff;
+      --text: #20211f;
+      --muted: #70716c;
+      --line: #e7e7e1;
+      --accent: #5a674d;
+      --accent-light: #e9ede5;
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #9aaa8b; outline-offset: 4px; }
+    .wrap { width: min(1060px, calc(100% - 40px)); margin-inline: auto; }
+    header { padding: 26px 0; }
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-size: .9rem; font-weight: 800; letter-spacing: .12em; }
+    .links { display: flex; gap: 24px; color: var(--muted); font-size: .92rem; }
+    .links a:hover { color: var(--text); }
+    .hero { padding: 90px 0 78px; display: grid; grid-template-columns: 1.5fr .8fr; gap: 56px; align-items: center; }
+    .eyebrow { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { max-width: 720px; margin: 18px 0; font-size: clamp(2.7rem, 6vw, 5.3rem); line-height: .99; letter-spacing: -.03em; font-weight: 750; }
+    .intro { max-width: 560px; color: var(--muted); font-size: 1.12rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; font-weight: 650; font-size: .94rem; transition: transform .18s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .primary { color: white; background: var(--text); }
+    .secondary { border: 1px solid var(--line); background: var(--paper); }
+    .profile-card { min-height: 300px; background: var(--accent-light); border-radius: 28px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; }
+    .avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+}
+    .profile-card p { margin: 0; color: #4e5848; }
+    section { padding: 38px 0 64px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+    h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 2.6rem); letter-spacing: -.045em; line-height: 1.1; }
+    .section-note { color: var(--muted); max-width: 420px; margin: 0; font-size: .95rem; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+    .project-art {
+  height: 280px;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+}
+.project-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+    .art-one { background: #e8e5dc; }
+    .art-two { background: #e3e9e1; }
+    .mock-window { width: min(100%, 330px); padding: 14px; background: rgba(255,255,255,.82); border: 1px solid rgba(32,33,31,.08); border-radius: 12px; box-shadow: 0 12px 35px rgba(30,35,25,.07); }
+    .mock-top { display: flex; gap: 5px; margin-bottom: 15px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: #c8c8c0; }
+    .mock-line { height: 8px; width: 65%; background: #d8d8d0; border-radius: 5px; margin: 8px 0; }
+    .mock-line.short { width: 38%; }
+    .mock-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+    .mock-blocks span { display: block; height: 62px; border-radius: 7px; background: #e8e8e1; }
+    .art-two .mock-line { background: #cbd6c7; }
+    .art-two .mock-blocks span:first-child { background: #c8d5c2; }
+    .art-two .mock-blocks span:last-child { background: #eee5d7; }
+    .project-info { padding: 20px 22px 22px; }
+    .project-info h3 { margin: 0 0 6px; font-size: 1.12rem; }
+    .project-info p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .tag { display: inline-block; margin-top: 14px; padding: 5px 10px; border-radius: 999px; background: #f0f0eb; color: #62635d; font-size: .78rem; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; }
+    .about-copy { color: var(--muted); max-width: 650px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .skill { padding: 8px 12px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; font-size: .88rem; }
+    .contact { background: var(--text); color: white; border-radius: 28px; padding: clamp(26px, 5vw, 52px); display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .contact p { max-width: 480px; color: #c9cac4; margin-bottom: 0; }
+    .contact .button { background: white; color: var(--text); flex-shrink: 0; }
+    footer { padding: 28px 0 36px; color: var(--muted); font-size: .85rem; display: flex; justify-content: space-between; gap: 15px; }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 28px, 600px); }
+      .links { gap: 12px; font-size: .82rem; }
+      .hero { padding: 55px 0 45px; grid-template-columns: 1fr; gap: 28px; }
+      .profile-card { min-height: 220px; }
+      .projects, .about-grid { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      .about-grid { gap: 14px; }
+      .contact { align-items: start; flex-direction: column; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav class="nav" aria-label="Главная навигация">
+      <a class="logo" href="#home">МОЁ ПОРТФОЛИО</a>
+      <div class="links">
+        <a href="#projects">Работы</a>
+        <a href="#about">Обо мне</a>
+        <a href="#contact">Контакты</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow">Дизайнер мебели · Дизайнер интерьера</div>
+        <h1>Привет! Я воплощаю интересные идеи.</h1>
+        <p class="intro">Это пространство моих проектов и новых идей. </p>
+        <div class="actions">
+          <a class="button primary" href="#projects">Смотреть проекты ↗</a>
+          <a class="button secondary" href="#about">Немного обо мне</a>
+        </div>
+      </div>
+      <aside class="profile-card">
+        <img class="avatar" src="images/me.jpg" alt="Моя фотография">
+        <p>Ислам Мухаметзянов<br>Архитектор</p>
+      </aside>
+    </div>
+<div class="projects"></div>
+    <section class="wrap" id="projects">
+
+  <div class="section-head">
+    <h2>Проекты дизайна интерьера</h2>
+    <p class="section-note"></p>
+  </div>
+
+  <div class="projects">
+
+    <!-- Первая карточка -->
+    <article class="project">
+      <a href="project-1.html" class="project-art">
+        <img src="images/16.jpg" alt="Первый проект" class="project-image">
+      </a>
+
+      <div class="project-info">
+        <h3><a href="project-1.html">Дизайн компьютерного клуба, Уфа</a></h3>
+        <p>Большой коммерческий проект, где важна грамотная планировка и впечатлить клиентов клуба.</p>
+        <span class="tag">Дизайн интерьера</span>
+      </div>
+    </article>
+
+    <!-- Вторая карточка -->
+    <article class="project">
+      <a href="project-2.html" class="project-art">
+        <img src="images/21.jpg" alt="Второй проект" class="project-image">
+      </a>
+
+      <div class="project-info">
+        <h3><a href="project-2.html">Дизайн квартиры, Санкт-Петербург</a></h3>
+        <p>Небольшая квартира для ресторанного критика.</p>
+        <span class="tag">Дизайн интерьера</span>
+      </div>
+    </article>
+
+  </div>
+  <section class="wrap" id="furniture">
+  <div class="section-head">
+    <h2>Проекты мебели и изделий</h2>
+    <p class="section-note"></p>
+  </div>
+
+  <div class="projects">
+    <article class="project">
+      <a href="#" class="project-art">
+        <img src="images/mebel-1.jpg" alt="Проект мебели" class="project-image">
+      </a>
+      <div class="project-info">
+        <h3>Название проекта мебели</h3>
+        <p>Краткое описание проекта мебели.</p>
+        <span class="tag">Дизайн мебели</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <a href="#" class="project-art">
+        <img src="images/mebel-2.jpg" alt="Проект мебели" class="project-image">
+      </a>
+      <div class="project-info">
+        <h3>Название проекта мебели</h3>
+        <p>Краткое описание проекта мебели.</p>
+        <span class="tag">Дизайн мебели</span>
+      </div>
+    </article>
+  </div>
+</section>
+</section>
+</div>
+    <section class="wrap" id="about">
+      <div class="about-grid">
+        <div><div class="eyebrow">Знакомство</div><h2 style="margin-top:12px">Обо мне</h2></div>
+        <div class="about-copy">
+          <p>По образованию я архитектор. Но я не ограничиваю себя только зданиями и интерьерами - мне нравится создавать мебель и небольшие изделия.</p>
+          <p>Это портфолио будет расти вместе со мной: здесь буду выкладывать свои большие и малые проекты.</p>
+          <div class="skills" aria-label="Навыки и интересы">
+      
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact">
+      <div class="contact">
+        <div>
+          <div class="eyebrow" style="color:#c7d4bb">Для связи</div>
+          <h2 style="margin-top:10px">Заказать проект</h2>
+          <p>Почта для связи iza3472-102@mail.ru</p>
+          <p>Телефон для связи 8 966 92 029 08</p>
+        </div>
+        <a class="button" href="mailto:hello@example.com">Написать мне ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© <span id="year">2026</span> Моё портфолио</span>
+    <span>Санкт-Петербург</span>
+  </footer>
+</body>
+</html>
