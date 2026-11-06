@@ -42,15 +42,32 @@
     .button:hover { transform: translateY(-2px); }
     .primary { color: white; background: var(--text); }
     .secondary { border: 1px solid var(--line); background: var(--paper); }
-    .profile-card { min-height: 300px; background: var(--accent-light); border-radius: 28px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; }
-    .avatar {
-  width: 180px;
-  height: 180px;
-  border-radius: 16px;
+    .profile-card {
+  background: #002f8b;
+  color: #FFFFFF;
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+}
+ 
+.avatar-frame {
+  width: 100%;
+  max-width: 340px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #002f8b;
+  border-radius: 12px;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
-    .profile-card p { margin: 0; color: #4e5848; }
+    .profile-card p { margin: 0; color: #f6f8f5; }
     section { padding: 38px 0 64px; }
     .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
     h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 2.6rem); letter-spacing: -.045em; line-height: 1.1; }
@@ -130,9 +147,11 @@
         </div>
       </div>
       <aside class="profile-card">
-        <img class="avatar" src="images/me.jpg" alt="Моя фотография">
-        <p>Ислам Мухаметзянов<br>Архитектор</p>
-      </aside>
+  <div class="avatar-frame">
+    <img class="avatar" src="images/me.jpg" alt="Моя фотография">
+  </div>
+  <p>Ислам Мухаметзянов</p>
+</aside>
     </div>
 <div class="projects"></div>
     <section class="wrap" id="projects">
@@ -165,7 +184,7 @@
 
       <div class="project-info">
         <h3><a href="project-2.html">Дизайн квартиры, Санкт-Петербург</a></h3>
-        <p>Небольшая квартира для ресторанного критика.</p>
+        <p>Небольшая квартира для ресторанного журналиста.</p>
         <span class="tag">Дизайн интерьера</span>
       </div>
     </article>
@@ -179,23 +198,26 @@
 
   <div class="projects">
     <article class="project">
-      <a href="#" class="project-art">
-        <img src="images/mebel-1.jpg" alt="Проект мебели" class="project-image">
-      </a>
-      <div class="project-info">
-        <h3>Название проекта мебели</h3>
-        <p>Краткое описание проекта мебели.</p>
-        <span class="tag">Дизайн мебели</span>
-      </div>
-    </article>
+  <a href="project-3.html" class="project-art">
+    <img src="images/30.jpg" alt="Третий проект" class="project-image">
+  </a>
+
+  <div class="project-info">
+    <h3>
+      <a href="project-3.html">Проекты мебели</a>
+    </h3>
+    <p>Кухни, гардеробы.</p>
+    <span class="tag">Дизайн мебели</span>
+  </div>
+</article>
 
     <article class="project">
       <a href="#" class="project-art">
-        <img src="images/mebel-2.jpg" alt="Проект мебели" class="project-image">
+        <img src="images/60.jpg" alt="Проект мебели" class="project-image">
       </a>
       <div class="project-info">
-        <h3>Название проекта мебели</h3>
-        <p>Краткое описание проекта мебели.</p>
+        <h3>Изделия</h3>
+        <p></p>
         <span class="tag">Дизайн мебели</span>
       </div>
     </article>
@@ -207,8 +229,8 @@
       <div class="about-grid">
         <div><div class="eyebrow">Знакомство</div><h2 style="margin-top:12px">Обо мне</h2></div>
         <div class="about-copy">
-          <p>По образованию я архитектор. Но я не ограничиваю себя только зданиями и интерьерами - мне нравится создавать мебель и небольшие изделия.</p>
-          <p>Это портфолио будет расти вместе со мной: здесь буду выкладывать свои большие и малые проекты.</p>
+          <p>По образованию я архитектор. Мне нравится создавать мебель и небольшие изделия.</p>
+          <p>Портфолио будет расти вместе со мной: здесь буду выкладывать свои проекты.</p>
           <div class="skills" aria-label="Навыки и интересы">
       
           </div>
@@ -221,8 +243,8 @@
         <div>
           <div class="eyebrow" style="color:#c7d4bb">Для связи</div>
           <h2 style="margin-top:10px">Заказать проект</h2>
-          <p>Почта для связи iza3472-102@mail.ru</p>
-          <p>Телефон для связи 8 966 92 029 08</p>
+          <p>iza3472-102@mail.ru</p>
+          <p>8 966 92 029 08</p>
         </div>
         <a class="button" href="mailto:hello@example.com">Написать мне ↗</a>
       </div>
